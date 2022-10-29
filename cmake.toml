@@ -1,0 +1,28 @@
+# Reference: https://build-cpp.github.io/cmkr/cmake-toml
+[project]
+name = "dotx64dbg_pluginsdk"
+languages = ["CXX"]
+
+[target.x64dbg_pluginsdk]
+type = "interface"
+alias = "x64dbg::pluginsdk"
+compile-features = ["cxx_std_14"]
+include-directories = ["include"]
+x64.link-libraries = [
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/x64dbg.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/x64bridge.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/DeviceNameResolver/DeviceNameResolver_x64.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/jansson/jansson_x64.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/lz4/lz4_x64.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/TitanEngine/TitanEngine_x64.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/XEDParse/XEDParse_x64.lib",
+]
+x32.link-libraries = [
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/x32dbg.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/x32bridge.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/DeviceNameResolver/DeviceNameResolver_x86.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/jansson/jansson_x86.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/lz4/lz4_x86.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/TitanEngine/TitanEngine_x86.lib",
+    "${CMAKE_CURRENT_SOURCE_DIR}/lib/pluginsdk/XEDParse/XEDParse_x86.lib",
+]
